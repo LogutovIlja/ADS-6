@@ -13,7 +13,7 @@ class TPQueue {
      TPQueue() : begin(0), end(0) { }
      void push(T x) {
          int cif = end++;
-         for (cif; (x.prior > a[cif % size].prior) && (begin <= --cif);) {
+         for (cif; (begin <= --cif) && (x.prior > a[cif % size].prior);) {
              a[(cif + 1) % size] = a[cif % size];
          }
          a[(cif + 1) % size] = x;
